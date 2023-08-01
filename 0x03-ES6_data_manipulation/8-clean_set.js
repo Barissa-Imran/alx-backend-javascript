@@ -14,5 +14,5 @@ export default function cleanSet(set, startString) {
       }
     }
   }
-  return parts.json('-');
+  return parts.join('-');
 }
