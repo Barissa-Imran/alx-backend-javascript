@@ -21,4 +21,21 @@ describe('calculateNumber', () => {
       assert.strictEqual(calculateNumber('SUM', -2.0, 2.0), 0);
     });
   });
+  describe('type == "SUBTRACT"', () => {
+    it('equal positive numbers', () => {
+      assert.strictEqual(calculateNumber('SUBTRACT', 2.0, 2.0), 0);
+    });
+
+    it('equal positive numbers (alternate)', () => {
+      assert.strictEqual(calculateNumber('SUBTRACT', 2.3, 1.8), 0);
+    });
+
+    it('equal negative numbers', () => {
+      assert.strictEqual(calculateNumber('SUBTRACT', -2.0, -2.0), 0);
+    });
+
+    it('positive and negative numbers', () => {
+      assert.strictEqual(calculateNumber('SUBTRACT', -2.0, 2.0), 4.0);
+    });
+  });
 });
