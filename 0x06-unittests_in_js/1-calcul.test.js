@@ -35,7 +35,7 @@ describe('calculateNumber', () => {
     });
 
     it('positive and negative numbers', () => {
-      assert.strictEqual(calculateNumber('SUBTRACT', -2.0, 2.0), 4.0);
+      assert.strictEqual(calculateNumber('SUBTRACT', -2.0, 2.0), -4.0);
     });
   });
 });
