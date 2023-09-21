@@ -38,4 +38,14 @@ describe('calculateNumber', () => {
       assert.strictEqual(calculateNumber('SUBTRACT', -2.0, 2.0), -4.0);
     });
   });
+
+  describe('type == "DIVIDE"', () => {
+    it('whole positive numbers', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
+    });
+
+    it('dividing by 0', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
+    });
+  });
 });
