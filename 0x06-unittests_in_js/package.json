@@ -17,5 +17,8 @@
     "eslint-plugin-jest": "^22.17.0",
     "jest": "^24.9.0",
     "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "sinon": "^16.0.0"
   }
 }
