@@ -7,15 +7,15 @@ const sendPaymentRequestToApi = require('./4-payment');
 
 describe('sendPaymentRequestToApi', () => {
   it('sendPaymentRequestToApi uses  the calculateNumber method of Utils', () => {
-    const bigBrother = sinon.spy(Utils);
+    const bigBrother = sinon.spy(console);
     const dummy = sinon.stub(Utils, 'calculateNumber');
 
     dummy.returns(10);
     sendPaymentRequestToApi(100, 20);
-    expect(bigBrother.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+    expect(dummy.calledWith('SUM', 100, 20)).to.be.true;
     expect(dummy.callCount).to.be.equal(1);
     expect(bigBrother.log.calledWith('The total is: 10')).to.be.true;
-    expect(bigBrother.calculateNumber.callCount).to.be.equal(1);
+    expect(bigBrother.log.callCount).to.be.equal(1);
     dummy.restore();
     bigBrother.log.restore();
   });
