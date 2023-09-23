@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const PORT = 7865;
 
+// body-parser middleware for express
+app.use(express.json());
+
 app.get('/', (_, res) => {
   res.send('Welcome to the payment system');
 });
@@ -24,11 +27,13 @@ app.get('/available_payments', (_, res) => {
 });
 
 app.post('/login', (req, res) => {
-  let username = '';
-  if (req.body) {
-    username = req.body.userName;
+  if (!req.body || !req.body.userName) {
+    // If req.body or req.body.userName is undefined, return a 400 Bad Request response
+    res.status(400).send('Bad Request: userName is missing');
+  } else {
+    const { userName } = req.body;
+    res.send(`Welcome ${userName}`);
   }
-  res.send(`Welcome ${username}`);
 });
 
 app.listen(PORT, () => {
